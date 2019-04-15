@@ -39,8 +39,8 @@
                                     <td> {{ str_limit($respon->descripcion, 80) }}              </td>
                                     <td>{{ number_format($respon->precio, 2,",",".") }}</td>
                                     <td>{{ number_format($respon->cantidad, 2,",",".") }}</td>
-                                    <td class="hidden-xs"> {{ $respon->stockMinimo }}       </td>
-                                    <td class="hidden-xs"> {{ $respon->stockMaximo }}       </td>
+                                    <td class="hidden-xs"> {{ $respon->stocMinimo }}       </td>
+                                    <td class="hidden-xs"> {{ $respon->stocMinimo }}       </td>
                                     <td class="hidden-xs"> {{ $respon->sucursal }}       </td>
                                 </tr>
 
