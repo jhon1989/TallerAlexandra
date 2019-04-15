@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Equipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         Config::set('database.default', 'mysql');
-        return view('product.index', ['response' => Product::paginate(10)]);
+        return view('product.index', ['response' => Equipo::paginate(10)]);
     }
 
     /**
@@ -40,19 +40,19 @@ class ProductController extends Controller
     {
         if ($request->sucursal == 'Cali') {
 
-            Config::set('database.default', 'productosCali');
+            Config::set('database.default', 'equiposCali');
         } else {
 
-            Config::set('database.default', 'productosBogota');
+            Config::set('database.default', 'equiposMedellin');
         }
 
-        DB::table('products')->insert([
+        DB::table('equipos')->insert([
             "descripcion" => $request->descripcion,
             "codigo" => $request->codigo,
             "precio" => $request->precio,
-            "cantidad" => $request->cantidad,
-            "stocMinimo" => $request->stocMinimo,
-            "stockMaximo" => $request->stockMaximo,
+            "marca" => $request->marca,
+            "referencia" => $request->referencia,
+            "estado" => $request->estado,
             "sucursal" => $request->sucursal,
         ]);
         return redirect('product');
@@ -61,10 +61,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Equipo  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Equipo $product)
     {
         //
     }
@@ -72,10 +72,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Equipo  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Equipo $product)
     {
         //
     }
@@ -84,10 +84,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  \App\Equipo  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Equipo $product)
     {
         return view('product.create');
     }
@@ -95,10 +95,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Equipo  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Equipo $product)
     {
         //
     }

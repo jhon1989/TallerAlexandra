@@ -4,17 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Equipo extends Model
 {
-    protected $table = 'products';
+    protected $table = 'equipos';
 
     protected $fillable = [
         "descripcion",
         "codigo",
         "precio",
-        "cantidad",
-        "stocMinimo",
-        "stockMaximo",
+        "marca",
+        "referencia",
+        "estado",
         "sucursal",
         ];
 }

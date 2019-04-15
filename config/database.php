@@ -59,11 +59,11 @@ return [
             ]) : [],
         ],
 
-        'productosBogota' => [
+        'equiposCali' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST1', '127.0.0.1'),
             'port' => env('DB_PORT1', '3306'),
-            'database' => env('DB_DATABASE1', 'productosBogota'),
+            'database' => env('DB_DATABASE1', 'equiposCali'),
             'username' => env('DB_USERNAME1', 'root'),
             'password' => env('DB_PASSWORD1', ''),
             'unix_socket' => env('DB_SOCKET1', ''),
@@ -78,11 +78,11 @@ return [
             ]) : [],
         ],
 
-        'productosCali' => [
+        'equiposMedellin' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST1', '127.0.0.1'),
             'port' => env('DB_PORT1', '3306'),
-            'database' => env('DB_DATABASE1', 'productosCali'),
+            'database' => env('DB_DATABASE1', 'equiposMedellin'),
             'username' => env('DB_USERNAME1', 'root'),
             'password' => env('DB_PASSWORD1', ''),
             'unix_socket' => env('DB_SOCKET', ''),
