@@ -12,8 +12,8 @@
                     <div class="panel-body text-center">
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-6 col-lg-2">
-                                <a href="{{url('product/create')}}" class="btn btn-md btn-primary">
-                                    Nuevo Equipo
+                                <a href="{{url('prestamo/create')}}" class="btn btn-md btn-info">
+                                    Nuevo Prestamos
                                 </a>
                             </div>
                         </div>
@@ -24,24 +24,28 @@
                         <table class="table table-bordered .table ">
                             <thead class="thead">
                             <tr>
-                                <th class="hidden-xs"> Codigo      </th>
-                                <th> Descripcion      </th>
-                                <th class="hidden-xs"> Precio </th>
-                                <th class="hidden-xs"> Marca   </th>
-                                <th> Referencia    </th>
-                                <th> Estado   </th>
+                                <th class="hidden-xs"> Id Cliente      </th>
+                                <th> Nombre Cliente      </th>
+                                <th class="hidden-xs"> Valor Prestamo </th>
+                                <th class="hidden-xs"> Interes   </th>
+                                <th> Id Prestador    </th>
+                                <th> Nombre Prestador   </th>
+                                <th> Coutas   </th>
+                                <th> Frecuencia de Pago   </th>
                                 <th class="hidden-xs"> Sucursal    </th>
                             </tr>
                             </thead>
                             <tbody>
                             @forelse($response as $respon)
                                 <tr data-id='{{$respon->id}}'>
-                                    <td class="hidden-xs"> {{ $respon->codigo }}           </td>
-                                    <td> {{ str_limit($respon->descripcion, 80) }}              </td>
-                                    <td>{{ $respon->precio }}</td>
-                                    <td>{{ $respon->marca }}</td>
-                                    <td class="hidden-xs"> {{ $respon->referencia }}       </td>
-                                    <td class="hidden-xs"> {{ $respon->estado }}       </td>
+                                    <td class="hidden-xs"> {{ $respon->idCliente }}           </td>
+                                    <td> {{ $respon->nombreCliente, 80 }}              </td>
+                                    <td>{{ $respon->valorPrestamo }}</td>
+                                    <td>{{ $respon->porInteres }}</td>
+                                    <td class="hidden-xs"> {{ $respon->idPrestador }}       </td>
+                                    <td class="hidden-xs"> {{ $respon->nombrePrestador }}       </td>
+                                    <td class="hidden-xs"> {{ $respon->cuotas }}       </td>
+                                    <td class="hidden-xs"> {{ $respon->frecuenciaPago }}       </td>
                                     <td class="hidden-xs"> {{ $respon->sucursal }}       </td>
                                 </tr>
 

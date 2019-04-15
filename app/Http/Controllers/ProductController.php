@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Equipo;
+use App\Prestamos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         Config::set('database.default', 'mysql');
-        return view('product.index', ['response' => Equipo::paginate(10)]);
+        return view('product.index', ['response' => Prestamos::paginate(10)]);
     }
 
     /**
@@ -40,31 +40,33 @@ class ProductController extends Controller
     {
         if ($request->sucursal == 'Cali') {
 
-            Config::set('database.default', 'equiposCali');
+            Config::set('database.default', 'prestamosCali');
         } else {
 
-            Config::set('database.default', 'equiposMedellin');
+            Config::set('database.default', 'prestamosMedellin');
         }
 
-        DB::table('equipos')->insert([
-            "descripcion" => $request->descripcion,
-            "codigo" => $request->codigo,
-            "precio" => $request->precio,
-            "marca" => $request->marca,
-            "referencia" => $request->referencia,
-            "estado" => $request->estado,
+        DB::table('prestamos')->insert([
+            "idCliente" => $request->idCliente,
+            "nombreCliente" => $request->nombreCliente,
+            "valorPrestamo" => $request->valorPrestamo,
+            "porInteres" => $request->porInteres,
+            "idPrestador" => $request->idPrestador,
+            "nombrePrestador" => $request->nombrePrestador,
+            "cuotas" => $request->cuotas,
+            "frecuenciaPago" => $request->frecuenciaPago,
             "sucursal" => $request->sucursal,
         ]);
-        return redirect('product');
+        return redirect('prestamo');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Equipo  $product
+     * @param  \App\Prestamos  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Equipo $product)
+    public function show(Prestamos $product)
     {
         //
     }
@@ -72,10 +74,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Equipo  $product
+     * @param  \App\Prestamos  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Equipo $product)
+    public function edit(Prestamos $product)
     {
         //
     }
@@ -84,10 +86,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Equipo  $product
+     * @param  \App\Prestamos  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Equipo $product)
+    public function update(Request $request, Prestamos $product)
     {
         return view('product.create');
     }
@@ -95,10 +97,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Equipo  $product
+     * @param  \App\Prestamos  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Equipo $product)
+    public function destroy(Prestamos $product)
     {
         //
     }
